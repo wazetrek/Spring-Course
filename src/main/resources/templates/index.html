@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Curso de Spring</title>
+</head>
+<body>
+
+<h1>
+    Esto es una prueba con thymeleaf
+</h1>
+
+<div th:if="${personas != null and !personas.empty}">
+    <table>
+        <th>Nombre:</th>
+        <th>Apellido:</th>
+        <th>Email:</th>
+        <th>Telefono:</th>
+
+
+        <tr th:each="persona : ${personas}">
+            <td th:text="${persona.nombre}"></td>
+            <td th:text="${persona.apellido}"></td>
+            <td th:text="${persona.email}"></td>
+            <td th:text="${persona.telefono}"></td>
+        </tr>
+    </table>
+</div>
+<div th:if="${personas == null or personas.empty}">
+    Lista de personas vacia
+</div>
+
+</body>
+</html>
