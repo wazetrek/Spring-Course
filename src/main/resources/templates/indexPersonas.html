@@ -7,8 +7,10 @@
 <body>
 
 <h1>
-    Esto es una prueba con SPRING
+    Esto es una prueba con SPRING, módulo de personas
 </h1>
+
+<a th:href="@{/agregar}">Crear persona</a>
 
 <div th:if="${personas != null and !personas.empty}">
     <table>
@@ -16,6 +18,8 @@
         <th>Apellido:</th>
         <th>Email:</th>
         <th>Telefono:</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
 
 
         <tr th:each="persona : ${personas}">
@@ -23,6 +27,8 @@
             <td th:text="${persona.apellido}"></td>
             <td th:text="${persona.email}"></td>
             <td th:text="${persona.telefono}"></td>
+            <td><a th:href="@{/editar/} + ${persona.id}" th:text="Editar"></a></td>
+            <td><a th:href="@{/eliminar(id=${persona.id})}" th:text="Eliminar"></a></td>
         </tr>
     </table>
 </div>
