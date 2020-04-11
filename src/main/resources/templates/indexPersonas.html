@@ -6,9 +6,7 @@
 </head>
 <body>
 
-<h1>
-    Esto es una prueba con SPRING, módulo de personas
-</h1>
+<header th:replace="plantillas/plantilla :: header"></header>
 
 <a th:href="@{/agregar}">Crear persona</a>
 
@@ -36,5 +34,6 @@
     Lista de personas vacia
 </div>
 
+<footer th:replace="plantillas/plantilla :: footer"></footer>
 </body>
 </html>
