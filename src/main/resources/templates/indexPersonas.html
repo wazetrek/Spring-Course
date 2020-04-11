@@ -12,12 +12,12 @@
 
 <div th:if="${personas != null and !personas.empty}">
     <table>
-        <th>Nombre:</th>
-        <th>Apellido:</th>
-        <th>Email:</th>
-        <th>Telefono:</th>
-        <th>Editar</th>
-        <th>Eliminar</th>
+        <th>[[#{persona.nombre}]]</th>
+        <th>[[#{persona.apellido}]]</th>
+        <th>[[#{persona.email}]]</th>
+        <th>[[#{persona.telefono}]]</th>
+        <th>[[#{accion.editar}]]</th>
+        <th>[[#{accion.eliminar}]]</th>
 
 
         <tr th:each="persona : ${personas}">
@@ -25,13 +25,13 @@
             <td th:text="${persona.apellido}"></td>
             <td th:text="${persona.email}"></td>
             <td th:text="${persona.telefono}"></td>
-            <td><a th:href="@{/editar/} + ${persona.id}" th:text="Editar"></a></td>
-            <td><a th:href="@{/eliminar(id=${persona.id})}" th:text="Eliminar"></a></td>
+            <td><a th:href="@{/editar/} + ${persona.id}" th:text="#{accion.editar}"></a></td>
+            <td><a th:href="@{/eliminar(id=${persona.id})}" th:text="#{accion.eliminar}"></a></td>
         </tr>
     </table>
 </div>
 <div th:if="${personas == null or personas.empty}">
-    Lista de personas vacia
+    [[#{persona.lista-vacía}]]
 </div>
 
 <footer th:replace="plantillas/plantilla :: footer"></footer>
