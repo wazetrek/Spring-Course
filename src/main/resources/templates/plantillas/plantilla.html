@@ -17,6 +17,9 @@
         <a th:href="@{/personas(lang=es)}">ES</a> |
         <a th:href="@{/personas(lang=en)}">EN</a> |
         <span>[[#{plantilla.pie-pagina}]] Andrés Blandón</span>
+        <form method="post" th:action="@{/logout}">
+            <a href="#" onclick="this.parentNode.submit();">Logout</a>
+        </form>
     </div>
 </footer>
 
