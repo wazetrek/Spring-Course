@@ -3,6 +3,8 @@ package com.course.HelloSpring2.web;
 import com.course.HelloSpring2.domain.Persona;
 import com.course.HelloSpring2.service.PersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -19,7 +21,8 @@ public class PersonaController {
     private PersonaService personaService;
 
     @GetMapping("/personas")
-    public String home(Model model) {
+    // Se agrega la anotación @AuthenticationPrincipal para poder obtener el usuario que está logueado
+    public String home(Model model, @AuthenticationPrincipal User user) {
         var personas = personaService.listarPersonas();
         model.addAttribute("personas", personas);
         return "indexPersonas";
